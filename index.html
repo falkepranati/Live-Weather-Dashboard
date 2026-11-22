@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Live weather dashboard with current conditions and a 7-day forecast.">
+  <title>SkyCast | Live Weather Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+
+    <header class="topbar">
+      <a class="brand" href="#">
+        <span class="brand-icon">✦</span>
+        <span>SkyCast</span>
+      </a>
+
+      <div class="topbar-note">
+        <span class="live-dot"></span>
+        LIVE WEATHER
+      </div>
+    </header>
+
+    <main class="main-content">
+
+      <section class="intro">
+        <div>
+          <p class="eyebrow">WEATHER OVERVIEW</p>
+          <h1>Know your <span>sky.</span></h1>
+          <p class="intro-text">Real-time conditions and forecasts for wherever you are.</p>
+        </div>
+
+        <div class="search-area">
+          <form id="searchForm" class="search-box">
+            <span class="search-icon">⌕</span>
+            <input
+              type="text"
+              id="cityInput"
+              placeholder="Search city..."
+              aria-label="Search city"
+              autocomplete="off"
+              required
+            >
+            <button type="submit" id="searchButton">Search</button>
+          </form>
+          <button type="button" id="locationButton" class="location-button">
+            ◎ Use my location
+          </button>
+        </div>
+      </section>
+
+      <p id="statusMessage" class="status-message" role="status">
+        Loading weather...
+      </p>
+
+      <section class="weather-grid">
+
+        <article class="current-card">
+          <div class="card-top">
+            <div>
+              <p class="card-label">CURRENT WEATHER</p>
+              <h2 id="locationName">Sholapur</h2>
+              <p id="currentDate" class="muted-text">--</p>
+            </div>
+            <span class="live-badge">● LIVE</span>
+          </div>
+
+          <div class="current-weather">
+            <div>
+              <p id="weatherIcon" class="weather-icon">☀️</p>
+              <p id="weatherDescription" class="weather-description">Loading...</p>
+            </div>
+            <div class="temperature-wrap">
+              <h3 id="temperature">--°</h3>
+              <p id="feelsLike">Feels like --°</p>
+            </div>
+          </div>
+
+          <div class="weather-divider"></div>
+
+          <div class="weather-details">
+            <div class="detail-item">
+              <span class="detail-icon">💧</span>
+              <div>
+                <p class="detail-label">Humidity</p>
+                <strong id="humidity">--%</strong>
+              </div>
+            </div>
+            <div class="detail-item">
+              <span class="detail-icon">💨</span>
+              <div>
+                <p class="detail-label">Wind speed</p>
+                <strong id="windSpeed">-- km/h</strong>
+              </div>
+            </div>
+            <div class="detail-item">
+              <span class="detail-icon">🌡️</span>
+              <div>
+                <p class="detail-label">Temperature</p>
+                <strong id="minMax">--° / --°</strong>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="side-card">
+          <div class="side-card-heading">
+            <div>
+              <p class="card-label">TODAY'S OUTLOOK</p>
+              <h2>At a glance</h2>
+            </div>
+            <span class="outlook-icon">◒</span>
+          </div>
+
+          <div class="outlook-list">
+            <div class="outlook-item">
+              <span>Sunrise</span>
+              <strong id="sunrise">--:--</strong>
+            </div>
+            <div class="outlook-item">
+              <span>Sunset</span>
+              <strong id="sunset">--:--</strong>
+            </div>
+            <div class="outlook-item">
+              <span>UV index</span>
+              <strong id="uvIndex">--</strong>
+            </div>
+            <div class="outlook-item">
+              <span>Rain chance</span>
+              <strong id="rainChance">--%</strong>
+            </div>
+          </div>
+
+          <p class="outlook-note">Plan your day with the latest weather conditions.</p>
+        </article>
+
+      </section>
+
+      <section class="forecast-section">
+        <div class="section-heading">
+          <div>
+            <p class="card-label">NEXT 7 DAYS</p>
+            <h2>Weather forecast</h2>
+          </div>
+          <span class="forecast-caption">Daily outlook</span>
+        </div>
+
+        <div id="forecastList" class="forecast-list">
+          <div class="forecast-loading">Preparing your forecast...</div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <p>SkyCast <span>•</span> Weather data powered by Open-Meteo</p>
+      <p>Designed for a clearer view of your day.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
